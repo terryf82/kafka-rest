@@ -45,6 +45,7 @@ class AsyncProducer(object):
             # item in the queue isn't due for retry yet. If this is the first-send
             # queue, this shouldn't ever trigger because retry_after_time is 0
             if message.retry_after_time > current_time:
+                queue.put_nowait(message)
                 break
             current_batch.append(message)
             if len(current_batch) >= self.client.flush_max_batch_size:
