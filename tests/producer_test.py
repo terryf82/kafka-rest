@@ -75,6 +75,7 @@ class TestProducer(TestCase):
         result = list(self.producer._message_batches_from_queue(queue))
         self.assertEqual(len(result), 1)
         self.assertEqual(result[0], [m2])
+        self.assertEqual(queue.qsize(), 1)
 
     @patch('kafka_rest.producer.request_for_batch')
     def test_send_batch_produce_request(self, fake_request):
