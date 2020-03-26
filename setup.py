@@ -6,7 +6,7 @@ from kafka_rest import __version__
 install_requires = [
     'tornado>=4.0.0,<5.0.0',
     'avro_json_serializer>=0.4.1,<0.5.0',
-    'avro==1.7.7'
+    'avro-python3==1.9.2.1'
 ]
 
 setup(
